@@ -22,7 +22,7 @@ initIPFS();
     const cid = await ipfs().sendJSONData(data);
     const receivedData = await ipfs().getJSONData(cid);
 
-    console.log(receivedData)
+    console.log(receivedData);
 })();
 ```
 
