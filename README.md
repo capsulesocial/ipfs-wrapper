@@ -18,9 +18,9 @@ import ipfs, { initIPFS } from '@capsulesocial/capsule-ipfs'
 initIPFS();
 
 (async () => {
-    const data = { foo: "random json data" }
-    const cid = await ipfs().sendJSONData(data)
-    const receivedData = await ipfs().getJSONData(cid)
+    const data = { foo: "random json data" };
+    const cid = await ipfs().sendJSONData(data);
+    const receivedData = await ipfs().getJSONData(cid);
 
     console.log(receivedData)
 })();
