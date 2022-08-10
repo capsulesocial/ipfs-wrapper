@@ -1,0 +1,21 @@
+{
+	"name": "@capsulesocial/ipfs-wrapper",
+	"version": "1.0.0",
+	"main": "dist/index.js",
+	"author": "Christos Panagiotakopoulos <christos@capsule.social>",
+	"license": "ISC",
+	"scripts": {
+		"build": "yarn tsc",
+		"prepublishOnly": "yarn run build"
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^5.33.0",
+		"@typescript-eslint/parser": "^5.33.0",
+		"eslint": "^8.21.0",
+		"prettier": "^2.7.1",
+		"typescript": "^4.7.4"
+	},
+	"dependencies": {
+		"ipfs-core": "0.14.3"
+	}
+}
