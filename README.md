@@ -1,8 +1,8 @@
 <div align="center">
 
-<h1>Capsule-Vue</h1>
+<h1>ipfs-wrapper</h1>
 
-Capsule-Vue is the Front-End powering Capsule Social's platform interface.
+Blogchain's IPFS wrapper
 
 </div>
 
