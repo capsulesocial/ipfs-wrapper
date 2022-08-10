@@ -15,7 +15,7 @@ Capsule-Vue is the Front-End powering Capsule Social's platform interface.
 ```typescript
 import ipfs, { initIPFS } from '@capsulesocial/capsule-ipfs'
 
-initIPFS()
+initIPFS();
 
 (async () => {
     const data = { foo: "random json data" }
@@ -23,7 +23,7 @@ initIPFS()
     const receivedData = await ipfs().getJSONData(cid)
 
     console.log(receivedData)
-})()
+})();
 ```
 
 ## License 
