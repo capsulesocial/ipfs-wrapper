@@ -5,6 +5,20 @@
 	"main": "dist/index.js",
 	"author": "Christos Panagiotakopoulos <christos@capsule.social>",
 	"license": "GPL-3.0-only",
+	"types": "dist/index.d.ts",
+	"homepage": "https://github.com/capsulesocial/ipfs-wrapper",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/capsulesocial/ipfs-wrapper.git"
+	},
+	"files": [
+		"dist/"
+	],
+	"keywords": [
+		"ipfs",
+		"Capsule Social",
+		"Blogchain"
+	],
 	"scripts": {
 		"build": "yarn tsc",
 		"lint": "yarn eslint '*/**/*.ts' -c .eslintrc.js --ignore-path .eslintignore",
