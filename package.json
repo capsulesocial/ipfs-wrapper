@@ -1,5 +1,6 @@
 {
 	"name": "@capsulesocial/ipfs-wrapper",
+	"description": "Blogchain's IPFS wrapper",
 	"version": "1.0.0",
 	"main": "dist/index.js",
 	"author": "Christos Panagiotakopoulos <christos@capsule.social>",
