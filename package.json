@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"main": "dist/index.js",
 	"author": "Christos Panagiotakopoulos <christos@capsule.social>",
-	"license": "ISC",
+	"license": "GNU GENERAL PUBLIC LICENSE",
 	"scripts": {
 		"build": "yarn tsc",
 		"prepublishOnly": "yarn run build"
