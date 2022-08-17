@@ -1,5 +1,7 @@
 # ipfs-wrapper
 
+![npm (scoped)](https://img.shields.io/npm/v/@capsulesocial/ipfs-wrapper) ![Discord](https://img.shields.io/discord/809438859053629450)
+
 A wrapper around [ipfs-core](https://www.npmjs.com/package/ipfs-core) for speeding up the loading of web3 frontend applications.
 
 Used on [Blogchain](https://blogchain.app).
