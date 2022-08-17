@@ -2,7 +2,9 @@
 
 <h1>ipfs-wrapper</h1>
 
-Blogchain's IPFS wrapper
+A wrapper around [ipfs-core](https://www.npmjs.com/package/ipfs-core) for speeding up loading of frontend ipfs applications.
+
+Powering [Blogchain](https://blogchain.app)
 
 </div>
 
