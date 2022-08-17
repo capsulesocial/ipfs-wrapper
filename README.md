@@ -2,7 +2,7 @@
 
 A wrapper around [ipfs-core](https://www.npmjs.com/package/ipfs-core) for speeding up the loading of web3 frontend applications.
 
-It's used on [Blogchain](https://blogchain.app).
+Used on [Blogchain](https://blogchain.app).
 
 ## Requirements
 
