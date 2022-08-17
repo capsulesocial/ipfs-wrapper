@@ -1,12 +1,8 @@
-<div align="center">
-
-<h1>ipfs-wrapper</h1>
+# ipfs-wrapper
 
 A wrapper around [ipfs-core](https://www.npmjs.com/package/ipfs-core) for speeding up the loading of web3 frontend applications.
 
 It's used on [Blogchain](https://blogchain.app).
-
-</div>
 
 ## Requirements
 
