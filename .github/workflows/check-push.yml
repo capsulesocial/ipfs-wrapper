@@ -71,4 +71,4 @@ jobs:
         run: tar -xzf node_modules.tar.gz
 
       - name: build
-        run: yarn build:web
+        run: yarn build
