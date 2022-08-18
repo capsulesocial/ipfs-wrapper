@@ -1,0 +1,74 @@
+name: IPFS Wrapper -- Validate Branch
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+
+  install-dependencies:
+    runs-on: ubuntu-latest
+    container:
+      image: node:16-alpine
+    steps:
+
+      - uses: actions/checkout@v1
+
+      - name: install tar (for actions/cache)
+        run: apk add --no-cache tar
+
+      # use the cached node_modules -- this is only used to speed up the install-dependencies job
+      - uses: actions/cache@v2
+        with:
+          path: 'node_modules'
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: install git
+        run: apk add --no-cache git
+
+      - name: yarn install
+        run: yarn install
+
+      # this copy of node_modules will be used for the rest of the workflow
+      - name: compress node_modules
+        run: tar -czf node_modules.tar.gz node_modules
+      - uses: actions/upload-artifact@v2
+        with:
+          name: node_modules.tar.gz
+          path: node_modules.tar.gz
+
+  lint:
+    needs: install-dependencies
+    runs-on: ubuntu-latest
+    container:
+      image: node:16-alpine
+    steps:
+
+      - uses: actions/checkout@v1
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: node_modules.tar.gz
+      - name: extract node_modules
+        run: tar -xzf node_modules.tar.gz
+
+      - name: lint
+        run: yarn lint
+
+  build:
+    needs: install-dependencies
+    runs-on: ubuntu-latest
+    container:
+      image: node:16-alpine
+    steps:
+
+      - uses: actions/checkout@v1
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: node_modules.tar.gz
+      - name: extract node_modules
+        run: tar -xzf node_modules.tar.gz
+
+      - name: build
+        run: yarn build:web
