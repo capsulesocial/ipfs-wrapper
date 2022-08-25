@@ -26,6 +26,6 @@ initIPFS();
 })();
 ```
 
-## License 
+## License
 
-[GNU GENERAL PUBLIC LICENSE 3](./LICENSE)
+[GNU AFFERO GENERAL PUBLIC LICENSE 3](./LICENSE)
