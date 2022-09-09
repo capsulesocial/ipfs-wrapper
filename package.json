@@ -19,21 +19,22 @@
 		"Capsule Social",
 		"Blogchain"
 	],
+	"type": "module",
 	"scripts": {
 		"build": "yarn tsc",
 		"lint": "yarn eslint '*/**/*.ts' -c .eslintrc.js --ignore-path .eslintignore",
 		"prepublishOnly": "yarn run build"
 	},
 	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "^5.35.1",
-		"@typescript-eslint/parser": "^5.35.1",
+		"@typescript-eslint/eslint-plugin": "^5.36.2",
+		"@typescript-eslint/parser": "^5.36.2",
 		"eslint": "^8.23.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-prettier": "^4.2.1",
 		"prettier": "^2.7.1",
-		"typescript": "^4.8.2"
+		"typescript": "^4.8.3"
 	},
 	"dependencies": {
-		"ipfs-core": "0.14.3"
+		"ipfs-core": "0.16.0"
 	}
 }

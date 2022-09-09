@@ -18,7 +18,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "lib": ["esnext","scripthost"]
+    "lib": ["esnext", "DOM"]
   },
   "include": [
     "src/**/*.ts",

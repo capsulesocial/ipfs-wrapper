@@ -14,13 +14,14 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-import type { Options, IPFS, CID } from 'ipfs-core';
+import type { Options, IPFS } from 'ipfs-core';
+import type Multiformats from 'multiformats';
 import { IPFSInterface } from './types';
 
 const defaultIpfsConfig: Options = {
 	start: false,
 	libp2p: {
-		peerStore: { persistence: false },
+		peerStore: { persistence: false } as any,
 	},
 	init: { algorithm: `RSA` },
 	preload: {
@@ -38,7 +39,7 @@ const defaultIpfsConfig: Options = {
 function createIPFSInterface(bootstrapNodes: string[], ipfsConfig: Options = defaultIpfsConfig): IPFSInterface {
 	let ipfsInitialised = false;
 	let node: IPFS | null = null;
-	let CIDClass: typeof CID | null = null;
+	let CIDClass: typeof Multiformats.CID | null = null;
 
 	if (ipfsConfig.config === undefined) {
 		ipfsConfig.config = {};
@@ -48,10 +49,11 @@ function createIPFSInterface(bootstrapNodes: string[], ipfsConfig: Options = def
 
 	const loadingResult = import(`ipfs-core`);
 
-	const promise = loadingResult.then(async ({ create, CID: CIDObj }) => {
+	const promise = loadingResult.then(async ({ create }) => {
+		const multiformats = await import(`multiformats`);
 		const ipfs = await create(ipfsConfig);
 
-		return { ipfs, CIDObj };
+		return { ipfs, CIDObj: multiformats.CID };
 	});
 
 	const promiseCache: Array<{
@@ -111,7 +113,7 @@ function createIPFSInterface(bootstrapNodes: string[], ipfsConfig: Options = def
 		const disconnectedBootstrapNodes = bootstrapNodes.filter((bootstrapNode: string) => !peerAddrs.has(bootstrapNode));
 		for (const a of disconnectedBootstrapNodes) {
 			try {
-				await node.swarm.connect(a);
+				await node.swarm.connect(a as any);
 			} catch (err) {
 				// eslint-disable-next-line no-console
 				console.error(`Failed to connect to ${a}: ${err}`);

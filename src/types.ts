@@ -14,7 +14,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-import type { IPFS, Options, CID } from 'ipfs-core';
+import type { IPFS, Options } from 'ipfs-core';
+import type Multiformats from 'multiformats';
 
 export interface IPFSInterface {
 	sendData: (content: string | ArrayBuffer) => Promise<string>;
@@ -22,7 +23,7 @@ export interface IPFSInterface {
 	getJSONData: <T>(hash: string) => Promise<T>;
 	sendJSONData: <T>(content: T) => Promise<string>;
 	getNodes: () => Promise<number>;
-	loadingResult: Promise<{ create: (options?: Options | undefined) => Promise<IPFS>; CID: typeof CID }>;
-	initResult: Promise<{ ipfs: IPFS; CIDObj: typeof CID }>;
+	loadingResult: Promise<{ create: (options?: Options | undefined) => Promise<IPFS> }>;
+	initResult: Promise<{ ipfs: IPFS; CIDObj: typeof Multiformats.CID }>;
 	startResult: Promise<void>;
 }

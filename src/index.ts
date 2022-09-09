@@ -14,7 +14,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-export type { IPFS, Options, CID } from 'ipfs-core';
+export type { IPFS, Options } from 'ipfs-core';
+import type Multiformats from 'multiformats';
+export type CID = Multiformats.CID;
 import { ipfs } from './ipfs';
 
 export { initIPFS } from './ipfs';
