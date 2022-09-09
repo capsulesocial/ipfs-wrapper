@@ -1,7 +1,7 @@
 {
 	"name": "@capsulesocial/ipfs-wrapper",
 	"description": "Blogchain's IPFS wrapper",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"main": "dist/index.js",
 	"author": "Christos Panagiotakopoulos <christos@capsule.social>",
 	"license": "GPL-3.0-only",
