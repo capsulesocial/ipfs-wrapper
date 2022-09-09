@@ -22,7 +22,7 @@
 	"type": "module",
 	"scripts": {
 		"build": "yarn tsc",
-		"lint": "yarn eslint '*/**/*.ts' -c .eslintrc.js --ignore-path .eslintignore",
+		"lint": "yarn eslint '*/**/*.ts' -c .eslintrc.cjs --ignore-path .eslintignore",
 		"prepublishOnly": "yarn run build"
 	},
 	"devDependencies": {
