@@ -16,6 +16,7 @@
  */
 import type { Options, IPFS } from 'ipfs-core';
 import type Multiformats from 'multiformats';
+import { GetOptions } from 'ipfs-core-types/src/dag';
 import { IPFSInterface } from './types';
 
 const defaultIpfsConfig: Options = {
@@ -132,11 +133,11 @@ function createIPFSInterface(bootstrapNodes: string[], ipfsConfig: Options = def
 		return Buffer.concat(content).toString();
 	};
 
-	const getJSONData = async <T>(cid: string) => {
+	const getJSONData = async <T>(cid: string, options?: GetOptions) => {
 		if (!node || !CIDClass) {
 			throw new Error(`Not initialised!`);
 		}
-		const res = await node.dag.get(CIDClass.parse(cid));
+		const res = await node.dag.get(CIDClass.parse(cid), options);
 		if (!res.value) {
 			throw new Error(`No data found!`);
 		}
