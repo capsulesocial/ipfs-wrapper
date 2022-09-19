@@ -16,11 +16,12 @@
  */
 import type { IPFS, Options } from 'ipfs-core';
 import type Multiformats from 'multiformats';
+import { GetOptions } from 'ipfs-core-types/src/dag';
 
 export interface IPFSInterface {
 	sendData: (content: string | ArrayBuffer) => Promise<string>;
 	getData: (cid: string) => Promise<string>;
-	getJSONData: <T>(hash: string) => Promise<T>;
+	getJSONData: <T>(hash: string, options?: GetOptions) => Promise<T>;
 	sendJSONData: <T>(content: T) => Promise<string>;
 	getNodes: () => Promise<number>;
 	loadingResult: Promise<{ create: (options?: Options | undefined) => Promise<IPFS> }>;
