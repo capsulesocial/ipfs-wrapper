@@ -181,7 +181,7 @@ function createIPFSInterface(bootstrapNodes: string[], ipfsConfig: Options = def
 	});
 
 	return {
-		getJSONData: <T>(cid: string) => _promiseWrapper<T>(getJSONData, cid),
+		getJSONData: <T>(cid: string, options?: GetOptions) => _promiseWrapper<T>(getJSONData, cid, options),
 		sendJSONData: <T>(content: T) => _promiseWrapper<string>(sendJSONData, content),
 		sendData: (content: string | ArrayBuffer) => _promiseWrapper(sendData, content),
 		getData: (cid: string) => _promiseWrapper(getData, cid),
