@@ -15,7 +15,7 @@
  *
  */
 import type { Options, IPFS, CID } from 'ipfs-core';
-import { GetOptions } from 'ipfs-core-types/src/dag';
+import type { GetOptions } from 'ipfs-core-types/types/src/dag';
 import { IPFSInterface } from './types';
 
 const defaultIpfsConfig: Options = {

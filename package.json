@@ -35,5 +35,8 @@
 	},
 	"dependencies": {
 		"ipfs-core": "0.14.3"
+	},
+	"peerDependencies": {
+		"ipfs-core-types": "^0.10.3"
 	}
 }
