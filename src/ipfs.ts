@@ -89,6 +89,9 @@ function createIPFSInterface(bootstrapNodes: string[], ipfsConfig: Options = def
 
 	function _maintainConnection() {
 		setTimeout(async () => {
+			if (!ipfsInitialised) {
+				return;
+			}
 			await ensureConnectedToBootstrapNodes();
 			_maintainConnection();
 		}, 10000);
@@ -179,12 +182,33 @@ function createIPFSInterface(bootstrapNodes: string[], ipfsConfig: Options = def
 		_resolveCachedPromises();
 	});
 
+	const stop = () => {
+		if (!node) {
+			throw new Error(`Not initialised`);
+		}
+
+		ipfsInitialised = false;
+		return node.stop();
+	};
+
+	const start = async () => {
+		if (!node) {
+			throw new Error('Not initialised');
+		}
+		await node.start();
+		ipfsInitialised = true;
+		_maintainConnection();
+		_resolveCachedPromises();
+	};
+
 	return {
 		getJSONData: <T>(cid: string) => _promiseWrapper<T>(getJSONData, cid),
 		sendJSONData: <T>(content: T) => _promiseWrapper<string>(sendJSONData, content),
 		sendData: (content: string | ArrayBuffer) => _promiseWrapper(sendData, content),
 		getData: (cid: string) => _promiseWrapper(getData, cid),
 		getNodes: () => _promiseWrapper(getNodes),
+		stop,
+		start,
 		loadingResult,
 		initResult,
 		startResult,

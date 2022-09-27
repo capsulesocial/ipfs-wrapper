@@ -26,4 +26,6 @@ export interface IPFSInterface {
 	loadingResult: Promise<{ create: (options?: Options | undefined) => Promise<IPFS> }>;
 	initResult: Promise<{ ipfs: IPFS; CIDObj: typeof Multiformats.CID }>;
 	startResult: Promise<void>;
+	stop: () => Promise<void>;
+	start: () => Promise<void>;
 }
